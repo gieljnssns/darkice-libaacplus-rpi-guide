@@ -34,6 +34,16 @@ Eject the SD card reader from Linux and your Mac, and put the card in the RPi.
 Power up your RPi, wait a minute or so, and now try sshing into the box with `ssh pi@raspberrypi.local` and the password `raspberry`
 
 ## Dependencies
+Change the Raspbian source repo
+```
+sudo nano /etc/apt/sources.list
+```
+change this all to
+```
+deb http://legacy.raspbian.org/raspbian/ jessie main contrib non-free rpi
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+deb-src http://legacy.raspbian.org/raspbian/ jessie main contrib non-free rpi
+```
 Update your Raspbian install:
 ```
 sudo apt-get update
@@ -65,19 +75,6 @@ sudo make install
 ```
 
 ## Get darkice source
-Enable the Raspbian source repo
-```
-sudo vi /etc/apt/sources.list
-```
-uncomment or add the deb-src line
-```
-deb-src http://archive.raspbian.org/raspbian jessie main contrib non-free rpi
-```
-Then run:
-```
-sudo apt-get update
-```
-Now get the darkice source
 ```
 cd ~
 mkdir src
@@ -91,7 +88,7 @@ cd darkice-1.2
 ```
 ./configure --with-aacplus --with-aacplus-prefix=/usr/local --with-pulseaudio --with-pulseaudio-prefix=/usr/lib/arm-linux-gnueabihf --with-lame --with-lame-prefix=/usr/lib/arm-linux-gnueabihf --with-alsa --with-alsa-prefix=/usr/lib/arm-linux-gnueabihf --with-jack --with-jack-prefix=/usr/lib/arm-linux-gnueabihf
 make
-make install
+sudo make install
 ```
 
 ## Configure /etc/darkice.cfg
@@ -134,7 +131,7 @@ localDumpFile   = recording.m4a
 
 ## icecast2
 ```
-aptitude install icecast2
+sudo aptitude install icecast2
 ```
 For the hostname, use `vinyl`, and for both *hackme* passwords, use `vinyl`
 
@@ -142,12 +139,12 @@ Then, for the admin password, set it to `vinyl` as well.
 
 Note: heaven forbid you mess up the icecast2 text GUI config... you'll need to run
 ```
-apt-get autoremove icecast2
-apt-get purge icecast2
+sudo apt-get autoremove icecast2
+sudo apt-get purge icecast2
 ```
 and then reinstall it
 ```
-aptitude install icecast2
+sudo aptitude install icecast2
 ```
 to get that crappy GUI back... unless there's an easier, undocumented way? and even then, where are the icecast.xml config files? not in /etc/icecast2/ ...
 
@@ -214,24 +211,26 @@ RUN=yes
 
 ### 6
 ```
-systemctl daemon-reload
+sudo systemctl daemon-reload
 ```
 
 ### 7
 Add default user nobody to the audio group (in my case, to work with ALSA):
 ```
-adduser nobody audio
+sudo adduser nobody audio
 ```
 
 ### 8
 Fix upstart problem (it seems Darkice is trying to start on boot too early):
 ```
-update-rc.d -f darkice remove
-update-rc.d darkice defaults 99
+sudo update-rc.d -f darkice remove
+sudo update-rc.d darkice defaults 99
 ```
 
 ## Reboot and connect to your USB turntable
 It should work now, so connect your streaming client up to (http://vinyl.local:8000/listen.m3u) and put on a record.
+
+On Music-Assistant, add the URL to your radio station through the GUI.
 
 On Sonos, add your streaming turntable URL (http://vinyl.local:8000/listen.m3u) by [adding a custom Internet radio station](https://sonos.custhelp.com/app/answers/detail/a_id/264/~/how-to-add-an-internet-radio-station-to-sonos).
 
