@@ -5,6 +5,7 @@ to facilitate streaming audio from one of these turntables with USB audio codec 
 - [Audio-Technica AT-LP120-USB](http://amzn.to/2drytFC)
 - [ION Audio Classic LP | 3-Speed USB](http://amzn.to/2e3piLt)
 - [Sony PSLX300USB](http://amzn.to/2dW2Xm7)
+- [iRig stream](https://www.amazon.nl/IK-Multimedia-IP-IRIG-STREAM-IN-iRig-Stream/dp/B07Z6GWZPV?th=1)
 
 via a Raspberry Pi 3 (or older, but why?)
 
