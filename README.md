@@ -39,7 +39,7 @@ Change the Raspbian source repo
 ```
 sudo nano /etc/apt/sources.list
 ```
-change this all to
+change this all to (rasbian jessie is now legacy)
 ```
 deb http://legacy.raspbian.org/raspbian/ jessie main contrib non-free rpi
 # Uncomment line below then 'apt-get update' to enable 'apt-get source'
