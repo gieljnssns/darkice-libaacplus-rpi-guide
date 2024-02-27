@@ -1,4 +1,4 @@
-# USB Turntable to Sonos or Pi Musicbox streaming guide
+# USB Turntable to Music-Assistant, Sonos or Pi Musicbox streaming guide
 ## for darkice, libaacplus, et al on Raspberry Pi 3 with Raspbian Jessie Lite
 to facilitate streaming audio from one of these turntables with USB audio codec output
 - [Audio-Technica AT-LP60-USB](http://amzn.to/2dSVrGz)
