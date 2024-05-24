@@ -16,11 +16,12 @@ If you already own a record player/turntable that only has analog audio output (
 
 USB Audio Device adds the analog line-in interface ports and ADC (analogue-to-digital converter) that is needed for capturing the raw audio from your analog audio source (e.g. vinyl record player/turntable or cassette player) and make the analog audio stream available for streaming.
 
-- [iRig stream](https://www.amazon.nl/IK-Multimedia-IP-IRIG-STREAM-IN-iRig-Stream/dp/B07Z6GWZPV?th=1)
 - [Behringer UFO202](https://www.behringer.com/product.html?modelCode=P0484) (with pre-amp)
 - [Behringer UCA222](https://www.behringer.com/product.html?modelCode=0805-AAG) (without pre-amp, replaces the UCA202)
 - [Behringer UCA202](https://www.behringer.com/behringer/product?modelCode=0805-AAC) (without pre-amp)
 - [ART USB Phono Plus](https://artproaudio.com/product/usb-phono-plus-project-series/) (a standalone pre-amp with USB interface that needs external power-suppy).
+- [IK Multimedia iRig Stream](https://www.ikmultimedia.com/products/irigstream/) (without pre-amp)
+- [IK Multimedia iRig Stream Pro](https://www.dlxmusic.se/produkter/studio/ljudkort/externa/ik-irig-stream-pro) (with pre-amp)
 - Another option as ADC instead of a USB Audio Device that should provide the same function but have not been tested here are HiFiBerry's ANALOG INPUT products like "HIFIBERRY DAC+ ADC PRO", "HIFIBERRY DAC2 ADC PRO", or "HIFIBERRY DAC+ ADC" as input. As a bonus those should provide a very clean and almost the look of an all-in-one commercial appliance:
   - https://www.hifiberry.com/blog/need-some-input/
     - https://www.hifiberry.com/shop/boards/hifiberry-dac2-adc-pro/
