@@ -1,22 +1,60 @@
-# USB Turntable to Music-Assistant, Sonos or Pi Musicbox streaming guide
-## for darkice, libaacplus, et al on Raspberry Pi 3 with Raspbian Jessie Lite
-to facilitate streaming audio from one of these turntables with USB audio codec output
-- [Audio-Technica AT-LP60-USB](http://amzn.to/2dSVrGz)
-- [Audio-Technica AT-LP120-USB](http://amzn.to/2drytFC)
+# Vinyl Record Player (Turntable) to Music Assistant streaming guide
+
+A step-by-step guide for one way to achieve music streaming from record players, USB turntables, or other analog sources via local URL to Music Assistant (MA), Sonos or Pi Musicbox, et al on a Raspberry Pi.
+
+So you can use this solution regardless if your vinyl record player / LP turntable (or other audio source) includes a USB interface output port with built-in USB audio codec or if you need to buy and use a stand-alone USB Audio Device for external analogue-to-digital conversion.
+
+## Icecast and Darkice based solution on Raspberry Pi 3 with Raspbian Jessie Lite
+
+These solutions utilize a USB Audio Class 2.0 pipeline that can support high-definition audio formats up to 192KHz and 32bits using a standard digital audio interface.
+
+To facilitate streaming audio from an analog vinyl record player and/or LP turntable with a built-in USB port for audio output you are going to have to have a few things:
+
+1. USB Audio Device or a record player/turntable with a built-in USB audio codec output:
+
+If you already own a record player/turntable that only has analog audio output (.i.e. it does not have a embedded USB audio codec output) then the easiest option is to use an external stand-alone USB Audio Device for analogue-to-digital conversion.
+
+USB Audio Device adds the analog line-in interface ports and ADC (analogue-to-digital converter) that is needed for capturing the raw audio from your analog audio source (e.g. vinyl record player/turntable or cassette player) and make the analog audio stream available for streaming.
+
+- [Behringer UFO202](https://www.behringer.com/product.html?modelCode=P0484) (with pre-amp)
+- [Behringer UCA222](https://www.behringer.com/product.html?modelCode=0805-AAG) (without pre-amp, replaces the UCA202)
+- [Behringer UCA202](https://www.behringer.com/behringer/product?modelCode=0805-AAC) (without pre-amp)
+- [ART USB Phono Plus](https://artproaudio.com/product/usb-phono-plus-project-series/) (a standalone pre-amp with USB interface that needs external power-suppy).
+- [IK Multimedia iRig Stream](https://www.ikmultimedia.com/products/irigstream/) (without pre-amp)
+- [IK Multimedia iRig Stream Pro](https://www.dlxmusic.se/produkter/studio/ljudkort/externa/ik-irig-stream-pro) (with pre-amp)
+- Another option as ADC instead of a USB Audio Device that should provide the same function but have not been tested here are HiFiBerry's ANALOG INPUT products like "HIFIBERRY DAC+ ADC PRO", "HIFIBERRY DAC2 ADC PRO", or "HIFIBERRY DAC+ ADC" as input. As a bonus those should provide a very clean and almost the look of an all-in-one commercial appliance:
+  - https://www.hifiberry.com/blog/need-some-input/
+    - https://www.hifiberry.com/shop/boards/hifiberry-dac2-adc-pro/
+    - https://www.hifiberry.com/shop/boards/hifiberry-dac-adc-pro/
+    - https://www.hifiberry.com/shop/boards/hifiberry-dac-adc/
+
+Note! If your record player/turntable does not have a built-in pre-amp for analog output then you either need to buy specifically a USB Audio Device with pre-amp (or a seperate phono preamp to put inline) as otherwise you will not get a signal that has been amplified enough to allow good digitalization.
+
+The alternative to above is to simply buy and use a "USB turntable" which is a vinyl record player that already has embedded USB audio codec output, like example one of these:
+
+- Audio-Technica has several various different models of USB turntables:
+  - Audio-Technica AT-LP5X
+  - Audio-Technica AT-LP60XUSB
+  - Audio-Technica AT-LP120XBT-USB
+  - Audio-Technica AT-LP120XUSB
+  - [Audio-Technica AT-LP60-USB](http://amzn.to/2dSVrGz)
+  - [Audio-Technica AT-LP120-USB](http://amzn.to/2drytFC)
 - [ION Audio Classic LP | 3-Speed USB](http://amzn.to/2e3piLt)
 - [Sony PSLX300USB](http://amzn.to/2dW2Xm7)
-- [iRig stream](https://www.amazon.nl/IK-Multimedia-IP-IRIG-STREAM-IN-iRig-Stream/dp/B07Z6GWZPV?th=1)
 
-via a Raspberry Pi 3 (or older, but why?)
+2. Raspberry Pi 3 (or older, but why?) with accessories like an SD-card and power-supply:
 
 - [Raspberry Pi 3](http://amzn.to/2eixlms)
 
-using [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/)
+3. Operating system:
+
+Use [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) and follow the installtion instructions below.
 
 ## Install raspbian
 Grab [Pi Filler](http://ivanx.com/raspberrypi/) to write the image file (.img) to your [2GB or larger SD card](http://amzn.to/2dVXFXR).
 
 ## Headless wi-fi setup (via macOS, optional)
+
 Download [VirtualBox](https://www.virtualbox.org) and the [VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) (needed for USB 2/3 SD card readers).
 
 Download an [Ubuntu VirtualBox image](http://www.osboxes.org/ubuntu/) so we can access the EXT4 filesystem on the RPi boot card.
@@ -249,8 +287,17 @@ Check the temp of your RPi 3 with
 ```
 if you're running without a heatsink, best to keep it below 70C
 
-## More info
-See [this forum](http://ubuntuforums.org/showthread.php?t=2183222)
-
 ## Final note
 While AAC+ is neat, on a local network you might as well stream 320Kbps MP3 for better sound quality, or if you're so inclined, uncompressed WAV
+
+# More info and references to other similar projects:
+
+* http://ubuntuforums.org/showthread.php?t=2183222
+* https://github.com/quebulm/Raspberry-Pi-Vinyl-Streamer/
+* https://maker.pro/raspberry-pi/projects/how-to-build-an-internet-radio-station-with-raspberry-pi-darkice-and-icecast
+  * https://www.youtube.com/watch?v=BurdTQbgbRc
+* https://github.com/aschober/vinyl-cast
+* https://www.instructables.com/Stream-AUX-and-Bluetooth-Through-Raspberry-Pi-to-W/
+* https://dupontgu.medium.com/how-to-stream-your-record-player-throughout-your-home-for-cheap-fb044368a240
+  * https://www.instructables.com/Stream-Turntable-Vinyl-to-Chromecast/
+* https://www.instructables.com/Add-Aux-to-Sonos-Using-Raspberry-Pi/
