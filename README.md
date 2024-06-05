@@ -287,8 +287,17 @@ Check the temp of your RPi 3 with
 ```
 if you're running without a heatsink, best to keep it below 70C
 
-## More info
-See [this forum](http://ubuntuforums.org/showthread.php?t=2183222)
-
 ## Final note
 While AAC+ is neat, on a local network you might as well stream 320Kbps MP3 for better sound quality, or if you're so inclined, uncompressed WAV
+
+# More info and references to other similar projects:
+
+* http://ubuntuforums.org/showthread.php?t=2183222
+* https://github.com/quebulm/Raspberry-Pi-Vinyl-Streamer/
+* https://maker.pro/raspberry-pi/projects/how-to-build-an-internet-radio-station-with-raspberry-pi-darkice-and-icecast
+  * https://www.youtube.com/watch?v=BurdTQbgbRc
+* https://github.com/aschober/vinyl-cast
+* https://www.instructables.com/Stream-AUX-and-Bluetooth-Through-Raspberry-Pi-to-W/
+* https://dupontgu.medium.com/how-to-stream-your-record-player-throughout-your-home-for-cheap-fb044368a240
+  * https://www.instructables.com/Stream-Turntable-Vinyl-to-Chromecast/
+* https://www.instructables.com/Add-Aux-to-Sonos-Using-Raspberry-Pi/
